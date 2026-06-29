@@ -18,6 +18,12 @@ class CrmVip(models.Model):
     actif = fields.Boolean(string='Actif', default=True)
     notes = fields.Text(string='Notes')
 
+    opportunite_ids = fields.One2many(
+    comodel_name='crm.lead',
+    inverse_name='vip_id',
+    string='Opportunités',
+    )
+
      # Champ calculé
     categorie = fields.Char(
         string='Catégorie automatique',
