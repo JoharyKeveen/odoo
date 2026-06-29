@@ -19,6 +19,7 @@
                             <field name="chiffre_affaires"/>
                             <field name="date_adhesion"/>
                             <field name="actif"/>
+                            <field name="categorie" readonly="1"/>
                         </group>
                     </group>
                     <notebook>
@@ -42,6 +43,7 @@
                 <field name="telephone"/>
                 <field name="niveau_vip"/>
                 <field name="chiffre_affaires"/>
+                <field name="categorie"/>
                 <field name="date_adhesion"/>
             </list>
         </field>

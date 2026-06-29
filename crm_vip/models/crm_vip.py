@@ -17,3 +17,22 @@ class CrmVip(models.Model):
     date_adhesion = fields.Date(string="Date d'adhésion")
     actif = fields.Boolean(string='Actif', default=True)
     notes = fields.Text(string='Notes')
+
+     # Champ calculé
+    categorie = fields.Char(
+        string='Catégorie automatique',
+        compute='_compute_categorie',
+        store=True
+    )
+
+    @api.depends('chiffre_affaires')
+    def _compute_categorie(self):
+        for rec in self:
+            if rec.chiffre_affaires < 10000:
+                rec.categorie = 'Bronze'
+            elif rec.chiffre_affaires < 50000:
+                rec.categorie = 'Silver'
+            elif rec.chiffre_affaires < 100000:
+                rec.categorie = 'Gold'
+            else:
+                rec.categorie = 'Platinum'
