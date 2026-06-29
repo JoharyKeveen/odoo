@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vue formulaire -->
+    <record id="view_crm_vip_form" model="ir.ui.view">
+        <field name="name">crm.vip.form</field>
+        <field name="model">crm.vip</field>
+        <field name="arch" type="xml">
+            <form string="Client VIP">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="telephone"/>
+                            <field name="niveau_vip"/>
+                        </group>
+                        <group>
+                            <field name="chiffre_affaires"/>
+                            <field name="date_adhesion"/>
+                            <field name="actif"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue liste -->
+    <record id="view_crm_vip_list" model="ir.ui.view">
+        <field name="name">crm.vip.list</field>
+        <field name="model">crm.vip</field>
+        <field name="arch" type="xml">
+            <list string="Clients VIP">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="telephone"/>
+                <field name="niveau_vip"/>
+                <field name="chiffre_affaires"/>
+                <field name="date_adhesion"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_crm_vip" model="ir.actions.act_window">
+        <field name="name">Clients VIP</field>
+        <field name="res_model">crm.vip</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_crm_vip_root"
+              name="VIP"
+              parent="crm.crm_menu_root"
+              action="action_crm_vip"
+              sequence="10"/>
+
+</odoo>
