@@ -7,6 +7,12 @@
         <field name="model">crm.vip</field>
         <field name="arch" type="xml">
             <form string="Client VIP">
+                <header>
+                    <button name="action_envoyer_email_bienvenue"
+                            type="object"
+                            string="Envoyer email de bienvenue"
+                            class="btn-primary"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -38,6 +44,7 @@
                         </page>
                     </notebook>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
